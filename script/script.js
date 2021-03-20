@@ -19,16 +19,22 @@ function FindOnPage(inputId) {//ieško teksto puslapyje, parametras   perduodama
   if (obj) {
     textToFind = TrimStr(obj.value);//panaikinam tarpus
   } else {
-    alert("Nieko nesurado");
+    alert("Rezultatas nerastas");
     return;
   }
+
   if (textToFind == "") {
-    alert("Tuscias laukelis");
+    alert("Tusčias laukelis");
+    return;
+  }
+
+  if (textToFind.length < 3) {
+    alert('Įveskite pilna pavadinima!');
     return;
   }
 
   if(document.body.innerHTML.indexOf(textToFind)=="-1")
-  alert("Nieko nerado, patikrinkite ar taisingai ivedete!");
+  alert("Nerodo, patikrinkite ar teisingai įvedėte!");
 
   if(copy_page.length>0)
         document.body.innerHTML=copy_page;
@@ -36,7 +42,7 @@ function FindOnPage(inputId) {//ieško teksto puslapyje, parametras   perduodama
 
 
   document.body.innerHTML = document.body.innerHTML.replace(eval("/name="+lastResFind+"/gi")," ");
-  document.body.innerHTML = document.body.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" style='background:red'>"+textToFind+"</a>");
+  document.body.innerHTML = document.body.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" style='background:whitesmoke'>"+textToFind+"</a>");
   lastResFind=textToFind;
   window.location = '#'+textToFind;
  }
