@@ -72,7 +72,7 @@ function findString(str) {
         alert("Opera browsers not supported, sorry...")
         return;
     }
-    if (!strFound) alert("String '" + str + "' not found!")
+    if (!strFound) alert("Raktažodis '" + str + "' nesrastas veskite nauja !")
         return;
 };
 
